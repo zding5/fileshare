@@ -23,7 +23,7 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             # print os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            newfilename = "%s--%s--%s"%(request.form["committee"],request.form["title"],request.form["number"]+" copies")
+            newfilename = "%s--%s--%s--%s"%(request.form["committee"],request.form["title"],request.form["number"]+" copies",filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], newfilename))
             return redirect('/')
     path = os.path.join(app.config['UPLOAD_FOLDER'])
